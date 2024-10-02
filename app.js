@@ -11,7 +11,11 @@ const taskRoutes = require("./routes/taskRoutes");
 const profileRoutes = require("./routes/profileRoutes");
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+origin:"http://task-mern-app.s3-website.eu-north-1.amazonaws.com",
+ optionsSuccessStatus: 200,
+  credentials:true
+}));
 
 const mongoUrl = process.env.MONGODB_URL;
 console.log('MONGODB_URL:', mongoUrl); // Log the mongoUrl to check its value
